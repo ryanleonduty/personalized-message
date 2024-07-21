@@ -1,21 +1,17 @@
 # Cell 1: Setup
-
 import streamlit as st
 from openai import OpenAI
 import os
 
 # Get your OpenAI API key from environment variables
-
 api_key = os.getenv("OPENAI_API_KEY")  # Used in production
 client = OpenAI(api_key=api_key)
 
 # Cell 2: Title & Description
-
 st.title(' ❤️ Personalized Message Generator')
 st.markdown('Bzz Bzz...Hello there, allow me to help you craft a very special message for your loved one ❤️.')
 
 # Cell 3: Function to generate text using OpenAI
-
 def analyze_text(text):
     if not api_key:
         st.error("OpenAI API key is not set. Please set it in your environment variables.")
@@ -39,7 +35,6 @@ def analyze_text(text):
 
 
 # Cell 4: Function to generate the image
-
 def generate_image(text):
     if not api_key:
         st.error("OpenAI API key is not set. Please set it in your environment variables.")
@@ -58,7 +53,6 @@ def generate_image(text):
     return response.data[0].url
 
 # Cell 5: Streamlit UI
-
 user_input = st.text_area("Enter a brief for your post:", " Though the day was cold, the warmth of your heart made everything feel brighter and more comforting")
 
 if st.button('Generate Post Content'):
